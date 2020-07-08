@@ -22,6 +22,28 @@ services:
       - default-network
     depends_on:
       - wh2o-db
+  wh2o-gages:
+    container_name: gages-container
+    build:
+      context: .
+      dockerfile: ./.docker/wh2o-gages.dockerfile
+    ports:
+      - 5000:5000
+    networks:
+      - default-network
+    depends_on:
+      - wh2o-db
+  nwi-data-tool:
+    container_name: nwi-data-tool-container
+    build:
+      context: .
+      dockerfile: ./.docker/nwi-data-tool.dockerfile
+    ports:
+      - 4000:4000
+    networks:
+      - default-network
+    depends_on:
+      - wh2o-db
   wh2o-db:
     container_name: db-container
     image: mdillon/postgis
