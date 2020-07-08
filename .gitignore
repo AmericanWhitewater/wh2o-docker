@@ -3,5 +3,5 @@ wh2o-web
 wh2o-api
 wh2o-web/
 wh2o-api/
-nwi-data-tool/
-wh2o-gages/
+nwi-data-tool/node_modules/
+wh2o-gages/node_modules/
