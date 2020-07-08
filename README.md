@@ -1,17 +1,24 @@
 # wh2o-docker
 
-Clone repos
+### System Requirements
+
+-[Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ```
-git clone --recursive https://github.com/drewalth/wh2o-docker.git
+mkdir wh2o
+
+cd wh2o && git clone https://github.com/drewalth/wh2o-docker.git
+
+cd wh2o-docker
+
+git submodule update --init --recursive --remote
+
 ```
 
 Build containers/images
 ```
 docker-compose build --no-cache
 ```
-
-Fire up the app
 
 ```
 docker-compose up

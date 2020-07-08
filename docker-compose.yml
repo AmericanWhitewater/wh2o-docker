@@ -1,36 +1,29 @@
-version: 3.7
+version: '3.7'
 services:
   wh2o-web:
-    container_name: wh2o-web
+    container_name: web-container
     build:
       context: .
       dockerfile: ./.docker/wh2o-web.dockerfile
     ports:
       - 8080:8080
     networks:
-      - wh2o-network
+      - default-network
     depends_on: 
-      - server
-    volumes: 
-       - ./wh2o-web/node_modules:/var/www/node_modules
+      - wh2o-api
   wh2o-api:
-    container_name: wh2o-api
+    container_name: api-container
     build:
-      args: 
-        user: wh2o
-        uid: 1234
       context: .
       dockerfile: ./.docker/wh2o-api.dockerfile
     ports:
-      - 3333:3333
+      - 8000:8000
     networks:
-      - wh2o-network
+      - default-network
     depends_on:
       - wh2o-db
-    volumes: 
-       - ./wh2o-api/node_modules:/var/www/node_modules
   wh2o-db:
-    container_name: wh2o-db
+    container_name: db-container
     image: mdillon/postgis
     environment:
       - POSTGRES_DB=wh2o
@@ -39,7 +32,12 @@ services:
     ports:
       - 55432:5432
     networks:
-      - wh2o-network
+      - default-network
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 networks:
-  wh2o-network:
+  default-network:
     driver: bridge
+volumes:
+  pgdata:
+    external: true

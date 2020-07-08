@@ -5,4 +5,4 @@
 [submodule "wh2o-api"]
 	path = wh2o-api
 	url = https://github.com/AmericanWhitewater/wh2o.git
-	branch = master
+	branch = wh2o-vue
