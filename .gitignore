@@ -1,3 +1,5 @@
 .DS_STORE
-/docker/wh2o-mysql/initdb/*.sql
-/docker/wh2o-mysql/initdb/*.sql.gz
+wh2o-web
+wh2o-api
+wh2o-web/
+wh2o-api/
