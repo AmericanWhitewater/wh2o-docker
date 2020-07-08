@@ -1,8 +1,8 @@
 [submodule "wh2o-web"]
 	path = wh2o-web
-	url = https://github.com/drewalth/wh2o-vue.git
-	branch = master
+	url = https://github.com/AmericanWhitewater/wh2o-vue.git
+	branch = development
 [submodule "wh2o-api"]
 	path = wh2o-api
-	url = https://github.com/drewalth/wh2o-express.git
-	branch = master
+	url = https://github.com/AmericanWhitewater/wh2o.git
+	branch = development

@@ -1,42 +1,45 @@
-version: "2"
-
+version: 3.7
 services:
-    web-service:
-        container_name: wh2o-web-container
-        image: wh2o-web-image
-        build: 
-            context: .
-            dockerfile: ./docker/wh2o-web/Dockerfile
-        ports:
-            - "8080:8080"
-        depends_on: 
-            - api-service
-        networks:
-            - default
-    api-service:
-        container_name: wh2o-api-container
-        image: wh2o-api-image
-        build: 
-            context: .
-            dockerfile: ./docker/wh2o-api/Dockerfile
-        environment: 
-            HOST: 0.0.0.0
-            PORT: 3030
-        ports:
-            - "3030:3030"
-        depends_on: 
-            - dbserver
-        networks:
-            - default
-    dbserver:
-        container_name: wh2o-mysql-container
-        image: wh2o-mysql-image
-        build:
-            context: .
-            dockerfile: ./docker/wh2o-mysql/Dockerfile
-        environment:
-            MYSQL_ROOT_PASSWORD: wh2o
-        ports:
-            - "3308:3306"
-        networks:
-            - default
+  wh2o-web:
+    container_name: wh2o-web
+    build:
+      context: .
+      dockerfile: ./.docker/wh2o-web.dockerfile
+    ports:
+      - 8080:8080
+    networks:
+      - wh2o-network
+    depends_on: 
+      - server
+    volumes: 
+       - ./wh2o-web/node_modules:/var/www/node_modules
+  wh2o-api:
+    container_name: wh2o-api
+    build:
+      args: 
+        user: wh2o
+        uid: 1234
+      context: .
+      dockerfile: ./.docker/wh2o-api.dockerfile
+    ports:
+      - 3333:3333
+    networks:
+      - wh2o-network
+    depends_on:
+      - wh2o-db
+    volumes: 
+       - ./wh2o-api/node_modules:/var/www/node_modules
+  wh2o-db:
+    container_name: wh2o-db
+    image: mdillon/postgis
+    environment:
+      - POSTGRES_DB=wh2o
+      - POSTGRES_USER=wh2o
+      - POSTGRES_PASSWORD=wh2o
+    ports:
+      - 55432:5432
+    networks:
+      - wh2o-network
+networks:
+  wh2o-network:
+    driver: bridge
