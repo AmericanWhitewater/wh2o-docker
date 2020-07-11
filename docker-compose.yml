@@ -13,6 +13,11 @@ services:
       - wh2o-api
   wh2o-api:
     container_name: api-container
+    environment: 
+      - POSTGRES_HOST=localhost
+      - POSTGRES_DB=wh2o
+      - POSTGRES_USER=wh2o
+      - POSTGRES_PASSWORD=wh2o
     build:
       context: .
       dockerfile: ./.docker/wh2o-api.dockerfile
@@ -33,8 +38,6 @@ services:
       - 55432:5432
     networks:
       - default-network
-    volumes:
-      - pgdata:/var/lib/postgresql/data
 networks:
   default-network:
     driver: bridge
