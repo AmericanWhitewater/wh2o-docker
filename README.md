@@ -7,7 +7,7 @@
 ```
 mkdir wh2o
 
-cd wh2o && git clone https://github.com/drewalth/wh2o-docker.git
+cd wh2o && git clone https://github.com/AmericanWhitewater/wh2o-docker.git
 
 cd wh2o-docker
 
