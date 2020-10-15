@@ -24,8 +24,8 @@ services:
       container_name: db-container
       image: postgres:10.4
       ports:
-        - "5432:5432"
+        - "35432:5432"
       environment:
         POSTGRES_USER: wh2o
         POSTGRES_PASSWORD: wh2o
-        POSTGRES_DB: db
+        POSTGRES_DB: wh2o
