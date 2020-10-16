@@ -22,7 +22,7 @@ services:
 
   wh2o-db:
       container_name: db-container
-      image: postgres:10.4
+      image: mdillon/postgis:9.6
       ports:
         - "35432:5432"
       environment:
