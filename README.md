@@ -23,3 +23,16 @@ docker-compose build --no-cache
 ```
 docker-compose up
 ```
+
+# To-Do
+
+- [ ] Add Laravel API
+- [ ] Add Gage Server  
+- [ ] Add Containerized Tile Server
+  - Tegola? Ask Nick.
+  - [tileserver-gl](https://www.npmjs.com/package/tileserver-gl)
+  - [tileserver-gl-light](https://www.npmjs.com/package/tileserver-gl-light)
+
+# Known Issues
+
+- [ ] Container Startup vs Ready State. Node API attempts db connection before Postgres is ready for incoming.

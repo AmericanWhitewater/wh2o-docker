@@ -1,8 +1,8 @@
-[submodule "wh2o-admin"]
-	path = wh2o-admin
-	url = https://github.com/AmericanWhitewater/wh2o-admin.git
-	branch = development
 [submodule "wh2o-api"]
-	path = wh2o-api
+	path = wh2o-admin
 	url = https://github.com/AmericanWhitewater/wh2o-api.git
 	branch = development
+[submodule "wh2o-vue"]
+	path = wh2o-vue
+	url = https://github.com/AmericanWhitewater/wh2o-vue.git
+	branch = next

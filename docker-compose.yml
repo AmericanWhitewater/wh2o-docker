@@ -1,25 +1,14 @@
 version: '3.7'
 services:
-  wh2o-admin:
-    container_name: admin-container
+  wh2o-vue:
+    container_name: web-container
     build:
       context: .
-      dockerfile: ./docker/wh2o-admin.dockerfile
+      dockerfile: ./docker/wh2o-vue.dockerfile
     ports:
       - 8080:8080
     depends_on: 
       - wh2o-api
-  wh2o-api:
-    container_name: api-container
-    build:
-      context: .
-      dockerfile: ./docker/wh2o-api.dockerfile
-    ports:
-      - 3000:3000
-    depends_on:
-      - wh2o-db
-    command: ["./wait-for-postgres.sh", "node", "dist/index.js"]
-
   wh2o-db:
       container_name: db-container
       image: mdillon/postgis:9.6
@@ -29,3 +18,14 @@ services:
         POSTGRES_USER: wh2o
         POSTGRES_PASSWORD: wh2o
         POSTGRES_DB: wh2o
+  wh2o-api:
+      container_name: api-container
+      build:
+        context: .
+        dockerfile: ./docker/wh2o-api.dockerfile
+      ports:
+        - 3000:3000
+      depends_on:
+        - wh2o-db
+      environment: 
+        DATABASE_URL: postgresql://wh2o:wh2o@wh2o-db:35432/wh2o
