@@ -5,4 +5,4 @@
 [submodule "wh2o-vue"]
 	path = wh2o-vue
 	url = https://github.com/AmericanWhitewater/wh2o-vue.git
-	branch = next
+	branch = development
