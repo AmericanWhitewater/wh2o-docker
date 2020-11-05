@@ -7,12 +7,9 @@
 ```
 mkdir wh2o
 
-cd wh2o && git clone https://github.com/AmericanWhitewater/wh2o-docker.git
+cd wh2o
 
-cd wh2o-docker
-
-git submodule update --init --recursive --remote
-
+git clone --recursive https://github.com/AmericanWhitewater/wh2o-docker.git
 ```
 
 Build containers/images
