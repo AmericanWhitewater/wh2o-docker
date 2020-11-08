@@ -9,15 +9,15 @@ services:
       - 8080:8080
     depends_on: 
       - wh2o-api
-  wh2o-db:
-      container_name: db-container
-      image: mdillon/postgis:9.6
-      ports:
-        - "35432:5432"
-      environment:
-        POSTGRES_USER: wh2o
-        POSTGRES_PASSWORD: wh2o
-        POSTGRES_DB: wh2o
+  # wh2o-db:
+  #     container_name: db-container
+  #     image: mdillon/postgis:9.6
+  #     ports:
+  #       - "35432:5432"
+  #     environment:
+  #       POSTGRES_USER: wh2o
+  #       POSTGRES_PASSWORD: wh2o
+  #       POSTGRES_DB: wh2o
   wh2o-api:
       container_name: api-container
       build:

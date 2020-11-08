@@ -1,3 +1,7 @@
+[submodule "wh2o"]
+	path = wh2o
+	url = https://github.com/AmericanWhitewater/wh2o.git
+	branch = better-docker
 [submodule "wh2o-api"]
 	path = wh2o-api
 	url = https://github.com/AmericanWhitewater/wh2o-api.git
