@@ -1,12 +1,16 @@
 [submodule "wh2o"]
 	path = wh2o
-	url = https://github.com/AmericanWhitewater/wh2o.git
-	branch = better-docker
+	url = git@github.com:AmericanWhitewater/wh2o.git
+	branch = master
 [submodule "wh2o-api"]
 	path = wh2o-api
-	url = https://github.com/AmericanWhitewater/wh2o-api.git
+	url = git@github.com:AmericanWhitewater/wh2o-api.git
 	branch = development
 [submodule "wh2o-vue"]
 	path = wh2o-vue
-	url = https://github.com/AmericanWhitewater/wh2o-vue.git
+	url = git@github.com:AmericanWhitewater/wh2o-vue.git
 	branch = development
+[submodule "insomnia-designer"]
+	path = insomnia_designer
+	url = git@github.com:AmericanWhitewater/insomnia_designer.git
+	branch = master

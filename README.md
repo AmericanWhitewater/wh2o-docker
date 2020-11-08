@@ -9,7 +9,9 @@ mkdir wh2o
 
 cd wh2o
 
-git clone --recursive https://github.com/AmericanWhitewater/wh2o-docker.git
+git clone --recurse-submodules -j8 git://github.com/AmericanWhitewater/wh2o-docker.git
+
+cd wh2o-docker
 ```
 
 Build containers/images
@@ -20,16 +22,3 @@ docker-compose build --no-cache
 ```
 docker-compose up
 ```
-
-# To-Do
-
-- [ ] Add Laravel API
-- [ ] Add Gage Server  
-- [ ] Add Containerized Tile Server
-  - Tegola? Ask Nick.
-  - [tileserver-gl](https://www.npmjs.com/package/tileserver-gl)
-  - [tileserver-gl-light](https://www.npmjs.com/package/tileserver-gl-light)
-
-# Known Issues
-
-- [ ] Container Startup vs Ready State. Node API attempts db connection before Postgres is ready for incoming.
