@@ -4,7 +4,7 @@ COPY ./wh2o-vue/ /var/www
 
 WORKDIR /var/www
 
-RUN npm ci
+RUN npm install
 
 EXPOSE 8080
 

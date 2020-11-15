@@ -9,7 +9,7 @@
 [submodule "wh2o-vue"]
 	path = wh2o-vue
 	url = git@github.com:AmericanWhitewater/wh2o-vue.git
-	branch = development
+	branch = next
 [submodule "insomnia-designer"]
 	path = insomnia_designer
 	url = git@github.com:AmericanWhitewater/insomnia_designer.git

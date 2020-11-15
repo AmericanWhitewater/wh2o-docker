@@ -1,31 +1,42 @@
 version: '3.7'
 services:
+  wh2o-db:
+    container_name: db-container
+    image: mdillon/postgis:9.6
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: wh2o
+      POSTGRES_PASSWORD: wh2o
+      POSTGRES_DB: wh2o
+    networks:
+        - wh2o-network
+  wh2o-api:
+    container_name: api-container
+    image: americanwhitewater/wh2o-api
+    build: 
+      context: .
+      dockerfile: ./docker/wh2o-api.dockerfile
+    ports:
+    - "3000:3000"
+    depends_on:
+      - wh2o-db
+    networks:
+        - wh2o-network
   wh2o-vue:
     container_name: web-container
-    build:
+    build: 
       context: .
       dockerfile: ./docker/wh2o-vue.dockerfile
     ports:
-      - 8080:8080
-    depends_on: 
+    - "8080:8080"
+    volumes: # For webpack dev server to use our local files
+      # - ./wh2o-vue/node_modules:/var/www/node_modules
+      - ./wh2o-vue:/var/www
+    depends_on:
       - wh2o-api
-  # wh2o-db:
-  #     container_name: db-container
-  #     image: mdillon/postgis:9.6
-  #     ports:
-  #       - "35432:5432"
-  #     environment:
-  #       POSTGRES_USER: wh2o
-  #       POSTGRES_PASSWORD: wh2o
-  #       POSTGRES_DB: wh2o
-  wh2o-api:
-      container_name: api-container
-      build:
-        context: .
-        dockerfile: ./docker/wh2o-api.dockerfile
-      ports:
-        - 3000:3000
-      depends_on:
-        - wh2o-db
-      environment: 
-        DATABASE_URL: postgresql://wh2o:wh2o@wh2o-db:35432/wh2o
+    networks:
+        - wh2o-network
+networks:
+    wh2o-network:
+      driver: bridge
