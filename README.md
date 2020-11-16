@@ -20,6 +20,8 @@ Build containers/images
 docker-compose build
 ```
 
+Install `node_modules` for `wh2o-vue` and `wh2o-api`. This is not ideal. 
+
 ```
 docker-compose up -d
 ```

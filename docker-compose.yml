@@ -31,8 +31,8 @@ services:
     ports:
     - "8080:8080"
     volumes: # For webpack dev server to use our local files
-      # - ./wh2o-vue/node_modules:/var/www/node_modules
       - ./wh2o-vue:/var/www
+      - ./wh2o-vue/node_modules:/var/www/node_modules
     depends_on:
       - wh2o-api
     networks:
