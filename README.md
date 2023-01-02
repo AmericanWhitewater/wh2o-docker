@@ -1,5 +1,10 @@
-# wh2o-docker
+# DEPRECATED
 
+This repository has been deprecated and is no longer in use. It is kept around for prosterity.
+
+See the durrent docker repo at: https://github.com/AmericanWhitewater/docker
+
+# wh2o-docker
 ### System Requirements
 
 - [`Docker Desktop - Mac`](https://www.docker.com/products/docker-desktop)
